@@ -8,111 +8,350 @@
       name="description"
       content="Lane Birmingham builds practical software across developer tooling, automation, and AI-assisted workflows."
     />
+    <meta name="theme-color" content="#0a0720" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Pixelify+Sans:wght@500;700&family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
+    <script>
+      document.documentElement.classList.add("js");
+      setTimeout(function () {
+        if (!window.__arcadeReady) document.documentElement.classList.remove("js");
+      }, 3000);
+    </script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page-shell">
-      <header class="hero">
-        <div class="terminal-bar">
-          <span></span>
-          <span></span>
-          <span></span>
+    <a class="skip" href="#about">Skip to content</a>
+    <div class="backdrop" aria-hidden="true"></div>
+    <canvas id="stars" aria-hidden="true"></canvas>
+
+    <div class="app">
+      <header class="hero" id="top">
+        <div class="hud" aria-hidden="true">
+          <span class="ready">1P Ready</span>
+          <span class="mid">Player select</span>
+          <span class="coin">Insert coin</span>
         </div>
-        <p class="eyebrow">lane@landing:~$ cat profile.txt</p>
-        <h1>Lane Birmingham</h1>
-        <p class="lede">
-          I build practical software for work and for curiosity, with a focus on
-          developer tooling, automation, and AI-assisted workflows.
-        </p>
-        <div class="hero-links">
-          <a href="https://github.com/LaneBirmingham" target="_blank" rel="noreferrer">GitHub</a>
+
+        <canvas class="planet" aria-hidden="true"></canvas>
+
+        <div class="hero-inner">
+          <p class="pre-title">★ Select your player ★</p>
+          <h1 class="title">
+            <span class="title-line tl-1">Lane</span>
+            <span class="title-line tl-2">Birmingham</span>
+          </h1>
+
+          <div class="hero-grid">
+            <section class="player-card notch" aria-label="Player one">
+              <span class="pc-tab" aria-hidden="true">P1</span>
+              <div class="pc-head">
+                <div class="pc-avatar notch" data-sprite="pad" aria-hidden="true"></div>
+                <div>
+                  <p class="pc-kicker" aria-hidden="true">Player 1 · Ready</p>
+                  <p class="pc-name">Lane Birmingham</p>
+                </div>
+              </div>
+              <p class="lede">
+                I build practical software for work and for curiosity, with a focus on
+                developer tooling, automation, and AI-assisted workflows.
+              </p>
+              <div class="hero-links">
+                <a class="btn" href="https://github.com/LaneBirmingham" target="_blank" rel="noreferrer">GitHub</a>
+                <a
+                  class="btn btn--magenta"
+                  href="https://www.linkedin.com/in/lane-birmingham-93261b151/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >LinkedIn</a
+                >
+              </div>
+            </section>
+
+            <nav class="menu notch" aria-label="Page sections">
+              <div class="press-wrap">
+                <a class="press-start" href="#about" aria-label="Press start: jump to About">
+                  <span class="ps-arrow" aria-hidden="true">▶</span>
+                  <span class="ps-text">Press start</span>
+                  <span class="ps-arrow" aria-hidden="true">◀</span>
+                </a>
+              </div>
+              <ul class="menu-list">
+                <li style="--d: 1">
+                  <a href="#about">
+                    <span class="m-num" aria-hidden="true">01</span>
+                    <span><span class="m-label">Bio</span><span class="m-sub">About</span></span>
+                  </a>
+                </li>
+                <li style="--d: 2">
+                  <a href="#focus">
+                    <span class="m-num" aria-hidden="true">02</span>
+                    <span><span class="m-label">Quest log</span><span class="m-sub">Current Focus</span></span>
+                  </a>
+                </li>
+                <li style="--d: 3">
+                  <a href="#skills">
+                    <span class="m-num" aria-hidden="true">03</span>
+                    <span><span class="m-label">Inventory</span><span class="m-sub">Skills</span></span>
+                  </a>
+                </li>
+                <li style="--d: 4">
+                  <a href="#projects">
+                    <span class="m-num" aria-hidden="true">04</span>
+                    <span><span class="m-label">Level select</span><span class="m-sub">Public Projects</span></span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <div class="sky" aria-hidden="true">
+          <canvas class="sky-far"></canvas>
+          <canvas class="sky-near"></canvas>
+        </div>
+      </header>
+
+      <main class="stages">
+        <div class="row-2">
+          <section class="screen screen--magenta notch" id="about" aria-labelledby="about-title" data-reveal>
+            <div class="screen-bar" aria-hidden="true">
+              <span>Stage 01 · bio.scr</span>
+              <span class="bar-dots"><i></i><i></i><i></i></span>
+            </div>
+            <div class="screen-body">
+              <p class="kicker">Bio screen</p>
+              <h2 id="about-title">About</h2>
+              <div class="dialog">
+                <span class="speaker" aria-hidden="true">Lane</span>
+                <p>
+                  Professionally, I work as a Principal Engineer in a DevOps and Platforms team
+                  focused on reliable platforms, developer tooling, and AI-assisted systems that
+                  reduce friction for teams.
+                </p>
+                <p>
+                  Outside that, I tend to build small tools, experiments, and workflow glue that
+                  remove friction and make ideas easier to test.
+                </p>
+                <span class="dialog-next" aria-hidden="true">▼</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="screen screen--yellow notch" id="focus" aria-labelledby="focus-title" data-reveal style="--d: 1">
+            <div class="screen-bar" aria-hidden="true">
+              <span>Stage 02 · quests.log</span>
+              <span class="bar-dots"><i></i><i></i><i></i></span>
+            </div>
+            <div class="screen-body">
+              <p class="kicker">Quest log</p>
+              <h2 id="focus-title">Current Focus</h2>
+              <ul class="quests">
+                <li class="quest notch" data-reveal style="--d: 1">
+                  <span class="quest-mark notch" aria-hidden="true"><span>!</span></span>
+                  <div>
+                    <div class="quest-label" aria-hidden="true"><span>Quest 01</span><span class="st">Active</span></div>
+                    <p>Developer tooling that reduces setup and context-switching.</p>
+                    <div class="quest-bar" aria-hidden="true"></div>
+                  </div>
+                </li>
+                <li class="quest notch" data-reveal style="--d: 2">
+                  <span class="quest-mark notch" aria-hidden="true"><span>!</span></span>
+                  <div>
+                    <div class="quest-label" aria-hidden="true"><span>Quest 02</span><span class="st">Active</span></div>
+                    <p>Automation for repetitive workflow and integration work.</p>
+                    <div class="quest-bar" aria-hidden="true"></div>
+                  </div>
+                </li>
+                <li class="quest notch" data-reveal style="--d: 3">
+                  <span class="quest-mark notch" aria-hidden="true"><span>!</span></span>
+                  <div>
+                    <div class="quest-label" aria-hidden="true"><span>Quest 03</span><span class="st">Active</span></div>
+                    <p>AI coding agents, MCP servers, and terminal-first interfaces.</p>
+                    <div class="quest-bar" aria-hidden="true"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+
+        <section class="screen screen--green notch" id="skills" aria-labelledby="skills-title" data-reveal>
+          <div class="screen-bar" aria-hidden="true">
+            <span>Stage 03 · inventory.dat</span>
+            <span class="bar-dots"><i></i><i></i><i></i></span>
+          </div>
+          <div class="screen-body">
+            <p class="kicker">Inventory</p>
+            <h2 id="skills-title">Skills</h2>
+            <ul class="inventory" aria-label="Skills and technologies">
+              <li class="slot" data-reveal style="--d: 0; --i: 0">
+                <span class="slot-key" aria-hidden="true">01</span>
+                <span class="slot-icon" data-sprite="python" aria-hidden="true"></span>
+                <span class="slot-name">Python</span>
+              </li>
+              <li class="slot" data-reveal style="--d: 1; --i: 1">
+                <span class="slot-key" aria-hidden="true">02</span>
+                <span class="slot-icon" data-sprite="go" aria-hidden="true"></span>
+                <span class="slot-name">Go</span>
+              </li>
+              <li class="slot" data-reveal style="--d: 2; --i: 2">
+                <span class="slot-key" aria-hidden="true">03</span>
+                <span class="slot-icon" data-sprite="cloud" aria-hidden="true"></span>
+                <span class="slot-name">Cloud</span>
+              </li>
+              <li class="slot" data-reveal style="--d: 3; --i: 3">
+                <span class="slot-key" aria-hidden="true">04</span>
+                <span class="slot-icon" data-sprite="devops" aria-hidden="true"></span>
+                <span class="slot-name">DevOps</span>
+              </li>
+              <li class="slot" data-reveal style="--d: 4; --i: 4">
+                <span class="slot-key" aria-hidden="true">05</span>
+                <span class="slot-icon" data-sprite="platform" aria-hidden="true"></span>
+                <span class="slot-name">Platform Engineering</span>
+              </li>
+              <li class="slot" data-reveal style="--d: 5; --i: 5">
+                <span class="slot-key" aria-hidden="true">06</span>
+                <span class="slot-icon" data-sprite="ai" aria-hidden="true"></span>
+                <span class="slot-name">AI/ML</span>
+              </li>
+              <li class="slot" data-reveal style="--d: 6; --i: 6">
+                <span class="slot-key" aria-hidden="true">07</span>
+                <span class="slot-icon" data-sprite="terminal" aria-hidden="true"></span>
+                <span class="slot-name">Terminal Tools</span>
+              </li>
+              <li class="slot" data-reveal style="--d: 7; --i: 7">
+                <span class="slot-key" aria-hidden="true">08</span>
+                <span class="slot-icon" data-sprite="gear" aria-hidden="true"></span>
+                <span class="slot-name">Automation</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="screen screen--cyan notch" id="projects" aria-labelledby="projects-title" data-reveal>
+          <div class="screen-bar" aria-hidden="true">
+            <span>Stage 04 · levels.rom</span>
+            <span class="bar-dots"><i></i><i></i><i></i></span>
+          </div>
+          <div class="screen-body">
+            <p class="kicker">Level select</p>
+            <h2 id="projects-title">Public Projects</h2>
+            <p class="levels-hint" aria-hidden="true">
+              <kbd>◀</kbd><kbd>▶</kbd><kbd>▲</kbd><kbd>▼</kbd> Select <span class="sep">·</span>
+              <kbd>Enter</kbd> Open
+            </p>
+
+            <ul class="levels">
+              <li class="level" data-reveal style="--d: 0">
+                <article class="cart" style="--c: var(--cyan); --cg: rgba(62, 242, 255, 0.35)">
+                  <div class="cart-top" aria-hidden="true"><span>Stage 4-1</span><span class="cart-enter">Press enter</span></div>
+                  <div class="cart-label">
+                    <p class="cart-stack">Go / Self-hosted</p>
+                    <h3>shartifacts</h3>
+                  </div>
+                  <p class="cart-desc">
+                    Self-hosted workspace for AI-made artifacts and full-stack micro apps. Coding
+                    agents connect over MCP to publish HTML, React, docs, slides and apps you can
+                    version, open on any device, and share.
+                  </p>
+                  <div class="cart-links">
+                    <a
+                      class="btn btn--sm cart-link"
+                      href="https://github.com/LaneBirmingham/shartifacts"
+                      target="_blank"
+                      rel="noreferrer"
+                      >View project</a
+                    >
+                  </div>
+                  <div class="cart-ridges" aria-hidden="true"></div>
+                </article>
+              </li>
+
+              <li class="level" data-reveal style="--d: 1">
+                <article class="cart" style="--c: var(--green); --cg: rgba(93, 255, 143, 0.32)">
+                  <div class="cart-top" aria-hidden="true"><span>Stage 4-2</span><span class="cart-enter">Press enter</span></div>
+                  <div class="cart-label">
+                    <p class="cart-stack">Rust / Tauri / Windows</p>
+                    <h3>CoopSync</h3>
+                  </div>
+                  <p class="cart-desc">
+                    Free, open-source co-op save sharing for Satisfactory and The Planet Crafter.
+                    Hand off saves between friends through a private GitHub repo, with no dedicated
+                    server and no Git knowledge needed.
+                  </p>
+                  <div class="cart-links">
+                    <a
+                      class="btn btn--sm cart-link"
+                      href="https://github.com/LaneBirmingham/CoopSync"
+                      target="_blank"
+                      rel="noreferrer"
+                      >View project</a
+                    >
+                    <a
+                      class="btn btn--sm btn--ghost"
+                      href="https://lanebirmingham.github.io/CoopSync/"
+                      target="_blank"
+                      rel="noreferrer"
+                      >Try the demo</a
+                    >
+                  </div>
+                  <div class="cart-ridges" aria-hidden="true"></div>
+                </article>
+              </li>
+
+              <li class="level" data-reveal style="--d: 2">
+                <article class="cart" style="--c: var(--yellow); --cg: rgba(255, 210, 63, 0.32)">
+                  <div class="cart-top" aria-hidden="true"><span>Stage 4-3</span><span class="cart-enter">Press enter</span></div>
+                  <div class="cart-label">
+                    <p class="cart-stack">Go / CLI</p>
+                    <h3>coding-agent-sync</h3>
+                  </div>
+                  <p class="cart-desc">
+                    CLI for syncing configuration and skills across different AI coding agents.
+                  </p>
+                  <div class="cart-links">
+                    <a
+                      class="btn btn--sm cart-link"
+                      href="https://github.com/LaneBirmingham/coding-agent-sync"
+                      target="_blank"
+                      rel="noreferrer"
+                      >View project</a
+                    >
+                  </div>
+                  <div class="cart-ridges" aria-hidden="true"></div>
+                </article>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p class="thanks" aria-hidden="true">Thanks for playing</p>
+        <div class="footer-links">
+          <a class="btn btn--sm" href="https://github.com/LaneBirmingham" target="_blank" rel="noreferrer">GitHub</a>
           <a
+            class="btn btn--sm btn--magenta"
             href="https://www.linkedin.com/in/lane-birmingham-93261b151/"
             target="_blank"
             rel="noreferrer"
             >LinkedIn</a
           >
+          <a class="btn btn--sm btn--ghost" href="#top">▲ Back to title</a>
         </div>
-      </header>
-
-      <main>
-        <section class="section">
-          <div class="section-heading">
-            <p class="eyebrow">lane@landing:~$ sed -n '1,40p' about.md</p>
-            <h2>About</h2>
-          </div>
-          <div class="copy-block">
-            <p>
-              Professional I work as a Principal engineer in a Devops and
-              Platforms team focused on reliable platforms, developer tooling,
-              and AI-assisted systems that reduce friction for teams.
-            </p>
-            <p>
-              Outside that, I tend to build small tools, experiments, and
-              workflow glue that remove friction and make ideas easier to test.
-            </p>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section-heading">
-            <p class="eyebrow">lane@landing:~$ ls current-focus/</p>
-            <h2>Current Focus</h2>
-          </div>
-          <ul class="focus-list">
-            <li>Developer tooling that reduces setup and context-switching.</li>
-            <li>Automation for repetitive workflow and integration work.</li>
-            <li>AI coding agents, MCP servers, and terminal-first interfaces.</li>
-          </ul>
-        </section>
-
-        <section class="section">
-          <div class="section-heading">
-            <p class="eyebrow">lane@landing:~$ cat skills.json</p>
-            <h2>Skills</h2>
-          </div>
-          <div class="skills-list" aria-label="Skills and technologies">
-            <span class="skill-pill">Python</span>
-            <span class="skill-pill">Go</span>
-            <span class="skill-pill">Cloud</span>
-            <span class="skill-pill">DevOps</span>
-            <span class="skill-pill">Platform Engineering</span>
-            <span class="skill-pill">AI/ML</span>
-            <span class="skill-pill">Terminal Tools</span>
-            <span class="skill-pill">Automation</span>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section-heading">
-            <p class="eyebrow">lane@landing:~$ tree selected-projects</p>
-            <h2>Public Projects</h2>
-          </div>
-          <div class="project-grid">
-            <article class="project-card">
-              <p class="project-type">Go / CLI</p>
-              <h3>coding-agent-sync</h3>
-              <p>
-                CLI for syncing configuration and skills across different AI
-                coding agents.
-              </p>
-              <a
-                href="https://github.com/LaneBirmingham/coding-agent-sync"
-                target="_blank"
-                rel="noreferrer"
-                >View project</a
-              >
-            </article>
-          </div>
-        </section>
-
-      </main>
+        <p class="cheat" aria-hidden="true">↑ ↑ ↓ ↓ ← → ← → B A</p>
+        <p class="copy">© 2026 Lane Birmingham</p>
+      </footer>
     </div>
+
+    <div class="crt" aria-hidden="true"></div>
+    <div class="power" aria-hidden="true"></div>
+    <div class="toast notch" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
   </body>
 </html>
